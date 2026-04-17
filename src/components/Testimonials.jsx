@@ -137,19 +137,20 @@ export default function Testimonials() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
         >
           {[
-            { number: '500+', label: 'Healthcare Facilities' },
-            { number: '2M+', label: 'Patients Guided' },
-            { number: '99%', label: 'Satisfaction Rate' },
-            { number: '24/7', label: 'Support Available' },
+            { number: '500+', label: 'Healthcare Facilities', onClick: () => alert('500+ healthcare facilities are already using Destinofy!') },
+            { number: '2M+', label: 'Patients Guided', onClick: () => alert('Over 2 million patients guided successfully to their destinations!') },
+            { number: '99%', label: 'Satisfaction Rate', onClick: () => alert('99% of users are satisfied with Destinofy navigation!') },
+            { number: '24/7', label: 'Support Available', onClick: () => alert('Our support team is available 24/7 to help you!') },
           ].map((stat, index) => (
-            <motion.div
+            <motion.button
               key={index}
               whileHover={{ scale: 1.05 }}
-              className="glass p-6 rounded-2xl border border-white/10"
+              onClick={stat.onClick}
+              className="glass p-6 rounded-2xl border border-white/10 cursor-pointer"
             >
               <p className="text-3xl font-bold gradient-text">{stat.number}</p>
               <p className="text-sm text-slate-400 mt-2">{stat.label}</p>
-            </motion.div>
+            </motion.button>
           ))}
         </motion.div>
       </div>

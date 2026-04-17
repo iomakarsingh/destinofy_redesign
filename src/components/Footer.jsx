@@ -33,9 +33,9 @@ export default function Footer() {
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/destinofy', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://twitter.com/destinofy', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/iomakarsingh/destinofy_redesign', label: 'GitHub' },
   ];
 
   return (
@@ -66,8 +66,10 @@ export default function Footer() {
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, y: -5 }}
-                    className="w-10 h-10 glass rounded-lg flex items-center justify-center text-slate-400 hover:text-blue-400 smooth-transition"
+                    className="w-10 h-10 glass rounded-lg flex items-center justify-center text-slate-400 hover:text-blue-400 smooth-transition cursor-pointer"
                     aria-label={social.label}
                   >
                     <Icon size={20} />
@@ -114,28 +116,29 @@ export default function Footer() {
             className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8"
           >
             <div className="flex flex-wrap gap-6 justify-center md:justify-start">
-              <motion.a
-                href="mailto:support@destinofy.com"
+              <motion.button
                 whileHover={{ x: 5 }}
-                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 smooth-transition"
+                onClick={() => window.location.href = 'mailto:support@destinofy.com'}
+                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 smooth-transition cursor-pointer bg-none border-none p-0"
               >
                 <Mail size={18} />
                 <span className="text-sm">support@destinofy.com</span>
-              </motion.a>
-              <motion.a
-                href="tel:+1234567890"
+              </motion.button>
+              <motion.button
                 whileHover={{ x: 5 }}
-                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 smooth-transition"
+                onClick={() => alert('☎️ Call us:\n\n+1 (234) 567-890\n\nMonday-Friday, 9 AM - 6 PM EST')}
+                className="flex items-center gap-2 text-slate-400 hover:text-blue-400 smooth-transition cursor-pointer bg-none border-none p-0"
               >
                 <Phone size={18} />
                 <span className="text-sm">+1 (234) 567-890</span>
-              </motion.a>
+              </motion.button>
             </div>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 rounded-lg text-sm font-semibold glass border border-white/20 hover:border-blue-500/50 smooth-transition"
+              onClick={() => alert('📞 Contact Sales:\n\nOur team will reach out within 24 hours!\n\nEmail: sales@destinofy.com')}
+              className="px-6 py-2 rounded-lg text-sm font-semibold glass border border-white/20 hover:border-blue-500/50 smooth-transition cursor-pointer"
             >
               Contact Sales
             </motion.button>

@@ -123,14 +123,14 @@ export default function UseCases() {
                       </div>
                       <p className="text-slate-400 leading-relaxed">{useCase.description}</p>
 
-                      {/* Hover arrow */}
-                      <motion.div
-                        initial={{ x: -10, opacity: 0 }}
-                        whileHover={{ x: 0, opacity: 1 }}
-                        className="mt-6 text-blue-400 font-semibold flex items-center gap-2"
-                      >
-                        Learn more →
-                      </motion.div>
+              <motion.div
+                initial={{ x: -10, opacity: 0 }}
+                whileHover={{ x: 0, opacity: 1 }}
+                className="mt-6 text-blue-400 font-semibold flex items-center gap-2 cursor-pointer"
+                onClick={() => alert(`🏥 ${useCase.title}\n\n${useCase.description}\n\nClick "Get Started" to learn more!`)}
+              >
+                Learn more →
+              </motion.div>
                     </div>
                   </div>
                 </div>

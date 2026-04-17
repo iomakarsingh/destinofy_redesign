@@ -3,8 +3,16 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export default function CTA() {
+  const handleGetStarted = () => {
+    alert('🚀 Get Started:\n\nHead over to GitHub to clone the project:\nhttps://github.com/iomakarsingh/destinofy_redesign\n\nRun:\nnpm install && npm run dev');
+  };
+
+  const handleScheduleDemo = () => {
+    alert('📅 Schedule Demo:\n\nDemo scheduling feature coming soon!\n\nIn the meantime, check out the live website at:\nhttp://localhost:3000');
+  };
+
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="cta" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -70,7 +78,8 @@ export default function CTA() {
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: '0 20px 25px rgba(10, 165, 233, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center gap-2 justify-center"
+                onClick={handleGetStarted}
+                className="btn-primary flex items-center gap-2 justify-center cursor-pointer"
               >
                 Get Started Free
                 <ArrowRight size={20} />
@@ -78,7 +87,8 @@ export default function CTA() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-secondary flex items-center gap-2 justify-center"
+                onClick={handleScheduleDemo}
+                className="btn-secondary flex items-center gap-2 justify-center cursor-pointer"
               >
                 Schedule Demo
                 <ArrowRight size={20} />

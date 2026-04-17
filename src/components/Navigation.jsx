@@ -5,6 +5,14 @@ import { Menu, X, MapPin } from 'lucide-react';
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleNavClick = (href) => {
+    setIsOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navItems = [
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Features', href: '#features' },
@@ -35,14 +43,14 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <motion.a
+              <motion.button
                 key={item.label}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 whileHover={{ color: '#0ea5e9' }}
-                className="text-sm font-medium text-slate-300 hover:text-blue-400 smooth-transition"
+                className="text-sm font-medium text-slate-300 hover:text-blue-400 smooth-transition cursor-pointer bg-none border-none p-0"
               >
                 {item.label}
-              </motion.a>
+              </motion.button>
             ))}
           </div>
 
@@ -51,14 +59,16 @@ export default function Navigation() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 rounded-lg text-sm font-semibold text-slate-300 border border-white/20 hover:border-blue-500/50 smooth-transition"
+              onClick={() => window.location.href = 'https://github.com/iomakarsingh/destinofy_redesign'}
+              className="px-6 py-2 rounded-lg text-sm font-semibold text-slate-300 border border-white/20 hover:border-blue-500/50 smooth-transition cursor-pointer"
             >
               Sign In
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary text-sm"
+              onClick={() => handleNavClick('#cta')}
+              className="btn-primary text-sm cursor-pointer"
             >
               Get Started
             </motion.button>
@@ -82,20 +92,25 @@ export default function Navigation() {
       >
         <div className="px-4 py-4 space-y-3">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
-              className="block text-sm font-medium text-slate-300 hover:text-blue-400 py-2"
-              onClick={() => setIsOpen(false)}
+              onClick={() => handleNavClick(item.href)}
+              className="block text-sm font-medium text-slate-300 hover:text-blue-400 py-2 w-full text-left bg-none border-none p-0 cursor-pointer"
             >
               {item.label}
-            </a>
+            </button>
           ))}
           <div className="pt-4 space-y-2 border-t border-white/10">
-            <button className="w-full px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 border border-white/20">
+            <button 
+              onClick={() => window.location.href = 'https://github.com/iomakarsingh/destinofy_redesign'}
+              className="w-full px-4 py-2 rounded-lg text-sm font-semibold text-slate-300 border border-white/20 cursor-pointer"
+            >
               Sign In
             </button>
-            <button className="btn-primary w-full">
+            <button 
+              onClick={() => handleNavClick('#cta')}
+              className="btn-primary w-full cursor-pointer"
+            >
               Get Started
             </button>
           </div>

@@ -24,7 +24,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
+    <section id="hero" className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -69,7 +69,8 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 20px 25px rgba(10, 165, 233, 0.3)' }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary flex items-center gap-2 justify-center"
+              onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary flex items-center gap-2 justify-center cursor-pointer"
             >
               Get Started Free
               <ArrowRight size={20} />
@@ -77,10 +78,11 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary flex items-center gap-2 justify-center"
+              onClick={() => window.open('https://github.com/iomakarsingh/destinofy_redesign', '_blank')}
+              className="btn-secondary flex items-center gap-2 justify-center cursor-pointer"
             >
               <Play size={20} />
-              Watch Demo
+              View on GitHub
             </motion.button>
           </motion.div>
 

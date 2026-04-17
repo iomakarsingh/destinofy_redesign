@@ -111,14 +111,14 @@ export default function FAQ() {
           className="mt-16 glass p-8 rounded-2xl border border-white/10 text-center"
         >
           <p className="text-slate-300 mb-4">Still have questions?</p>
-          <motion.a
+          <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="mailto:support@destinofy.com"
-            className="inline-block btn-primary"
+            onClick={() => alert('📧 Contact Us:\n\nEmail: support@destinofy.com\nPhone: +1 (234) 567-890\n\nWe\'ll get back to you within 24 hours!')}
+            className="inline-block btn-primary cursor-pointer"
           >
             Contact Our Team
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
     </section>

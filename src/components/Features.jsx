@@ -98,7 +98,8 @@ export default function Features() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="group"
+                onClick={() => alert(`✨ ${feature.title}\n\n${feature.description}`)}
+                className="group cursor-pointer"
               >
                 <div className="glass p-8 rounded-2xl h-full border border-white/10 group-hover:border-white/30 smooth-transition relative overflow-hidden">
                   {/* Animated gradient background */}
